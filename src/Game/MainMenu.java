@@ -1,25 +1,15 @@
 package Game;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class MainMenu extends JPanel {
-
-    private final JFrame parentWindow;
-
-    public MainMenu(JFrame parentWindow) {
-        this.parentWindow = parentWindow;
-        JButton startButton = new JButton("Start");
-        startButton.addActionListener(e -> {
-            startGame();
-        });
-
-        add(startButton);
-        setVisible(true);
-    }
-
-    private void startGame() {
-        parentWindow.setContentPane(new GamePanel(parentWindow));
-        parentWindow.validate();
-        parentWindow.invalidate();
+    public MainMenu(ActionListener startGame) {
+        setFocusable(false);
+        setBackground(Color.LIGHT_GRAY);
+        JButton button = new JButton("START GAME");
+        button.addActionListener(startGame);
+        add(button);
     }
 }
